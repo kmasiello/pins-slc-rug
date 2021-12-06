@@ -1,0 +1,101 @@
+:root {
+/* CSS HEX */
+--independence: #344966ff;
+--orange: #F99012;
+--rstudio-blue: #4d8dc9;
+--linen: #faf0e6;
+--dark-grayblue: #656D79;
+--slate-blue: #6C8498;
+--cinnamon: #834E49;
+--fox-brown: #493D3F;
+--beige: #D5AE83;
+--sand: #F5E5D1;
+--ochre: #C8995D;
+--pinkish-red: #C27871;
+--stone: #A0978F;
+--not-white: #FCFCFC;
+
+  /* Colors */
+--text-color: var(--fox-brown);
+--header-color: var(--dark-grayblue);
+--background-color: var(--linen);
+--link-color: #1381B0;
+--text-bold-color: #1381B0;
+--code-highlight-color: rgba(255,255,0,0.5);
+--inverse-text-color: var(--sand);
+--inverse-background-color: var(--dark-grayblue);
+--inverse-header-color: var(--linen);
+--inverse-link-color: var(--ochre);
+--title-slide-background-color: #1381B0;
+--title-slide-text-color: #000000;
+--header-background-color: #1381B0;
+--header-background-text-color: #FFFFFF;
+--primary: #1381B0;
+--secondary: #FF961C;
+--white: #FFFFFF;
+--black: #000000;
+--impact-color: var(--fox-brown);
+
+}
+
+
+
+a, a > code {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+h1 {
+  color: var(--independence);
+}
+h2 {
+  color: var(--independence);
+}
+
+.impactNum {
+  font-weight: normal;
+  color: var(--independence);
+  font-size: 150px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 100%;
+  font-family: "Petrona";
+
+}
+
+.impactText {
+  color: var(--impact-color);
+  font-size: 40px;
+  line-height: 90%;
+  margin-top: 0;
+  margin-left: -10px;
+  font-family: "Petrona";
+}
+
+.inverse{
+  text-shadow: 0 0 0px #333;
+
+}
+
+.inverse h1, .inverse h2, .inverse h3 {
+  color: var(--linen);
+}
+
+
+.left-even-column {
+  width: 50%;
+  float: left;
+}
+
+.right-even-column {
+  width: 50%;
+  float: right;
+}
+
+
+.smaller{font-size:smaller}
+
+.medium{font-size:medium}
+
+.larger{font-size:larger}
+
