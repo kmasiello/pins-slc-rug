@@ -11,7 +11,7 @@ board1 %>% pin_write(faithful)
 board1 %>% pin_write(palmerpenguins::penguins, name = "penguins", versioned = TRUE)
 
 #what do we have?
-board %>% pin_list()
+board1 %>% pin_list()
 # [1] "faithful" "mtcars"   "penguins"
 
 #read the pin

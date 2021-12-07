@@ -62,13 +62,13 @@ layout: true
 --
 
 <br>
-This includes:  
-data frames, models, .rds objects, JSON, feather files from the Arrow package...
+**On:** RStudio Connect, Github, Dropbox, S3 bucket, Azure blob storage, OneDrive, Sharepoint... 
+
+**This includes:** data frames, models, .rds objects, JSON, feather files...
+
 --
   
- 
-.center[<img src="slides_files/pickle.gif">]
-
+.center[<img src="slides_files/pickle.gif" height=250px>]
 ---
 layout: false
 background-image: url(slides_files/board_alpha_side.png)
@@ -146,7 +146,7 @@ board1 %>% pin_write(palmerpenguins::penguins,
                      name = "penguins", versioned = TRUE)
 
 #what pins do we have?
-board %>% pin_list()
+board1 %>% pin_list()
 # [1] "faithful" "mtcars"   "penguins"
 
 #read a pin
