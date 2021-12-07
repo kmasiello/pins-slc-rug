@@ -75,7 +75,7 @@ background-image: url(slides_files/board_alpha_side.png)
 background-position: left
 background-size: contain
 .left-column-impact[
-.impactNum[4]<br>
+.impactNum[5]<br>
 .impactText[signs you might want a pin]
 
 ]
@@ -83,15 +83,19 @@ background-size: contain
 .right-column[
 <br><br><br><br>
 
-* Do you rely on `read_csv()` to bring in emailed data?  
+* Do you rely on `read_csv()` to bring in emailed data?  🙋
 
 * Have you lost track of what version is which? *Was it* `dataFINALfinal.csv` *or*  `dataFINALv2.csv`? 🤔
 
-* Do you need to reuse the same data or object across multiple projects or with other people?
+* Do you need to reuse the same data or object across multiple projects or with other people? 👈
 
 * Are you redeploying your app every time the supporting data is updated? 😱
 
+* *"There's got to be a better way to incorporate this!"*
+
 ]
+
+
 ---
 background-image: url(slides_files/board_alpha_side.png)
 background-position: right
@@ -100,11 +104,12 @@ background-size: contain
 .right-column-impact[
 .impactText[
 
-What makes a .larger[good pin?]]
+What makes a .larger[good pin?]
+]
 ]   
 .left-column-wide[
-<br><br><br><br><br><br>
-* Not *too* big... a few hundred megabytes is plenty  <br>
+<br><br><br><br><br>
+* Not *too* big — a few hundred megabytes is plenty (though I've been known to push it 😉)  <br>
 👉 if it's too big for Excel, it's too big for a pin
 
 * Ephemeral data or reference tables that don't merit being in a database
@@ -127,6 +132,56 @@ background-size: contain
 # How it works
 ---
 # Let's give it a try
+.smaller[
+```{r eval=FALSE}
+library(pins)
+#local board
+(board1 <- board_local())
+# Pin board <pins_board_folder>
+# Path: '~/Library/Application Support/pins'
+
+#write some pins
+board1 %>% pin_write(mtcars)
+board1 %>% pin_write(faithful)
+board1 %>% pin_write(palmerpenguins::penguins, 
+                     name = "penguins", versioned = TRUE)
+
+#what do we have?
+board %>% pin_list()
+# [1] "faithful" "mtcars"   "penguins"
+
+#read the pin
+board1 %>% pin_read("mtcars")
+
+#list versions
+board1 %>% pin_versions("penguins")
+# A tibble: 2 × 3
+#   version                created             hash
+#   <chr>                  <dttm>              <chr>
+# 1 20211207T005403Z-84255 2021-12-06 16:54:00 84255
+# 2 20211207T005855Z-84255 2021-12-06 16:58:00 84255
+
+```
+
+]
+
+---
+#Now you try
+```{r eval=FALSE}
+library(pins)
+
+# My content is shared here
+board <- board_rsconnect(
+  server = "https://colorado.rstudio.com/rsc") 
+
+ 
+# Read the data
+pin_read(board, "katie/penguins")
+
+
+```
+
+### 🐧 : preview the pin at https://colorado.rstudio.com/rsc/example_pin/
 
 ---
 layout: false
@@ -156,10 +211,21 @@ layout: true
 # Pin model versions
 💪 Make models accessible for downstream consumption 
 <img src="slides_files/irl-model.png">
+
 ---
-# Common questions
- 
-* does the pin change the object
-* do i have to have an account
-* how do I control access
+# Miscellanea 
+* [Access controls](https://docs.rstudio.com/connect/user/content-settings/#content-access) on RStudio Connect
+* [Versioning](https://pins.rstudio.com/articles/pins.html#versioning-1)
+* ModelOps with [`vetiver`](https://vetiver.tidymodels.org/)
+* [Metadata](https://pins.rstudio.com/articles/pins.html#metadata-1)
+* pin types: rds, qs, arrow, csv, json
+* `pin_write()` & `pin_read()` vs [`pin_upload()` & `pin_download()`](https://pins.rstudio.com/articles/pins.html#reading-and-writing-files-1) 
+
+---
+layout: false
+class: inverse, middle
+# Thank you! 
+#👉 Let's talk about it! 
+## What are your thoughts and questions?
+
 
