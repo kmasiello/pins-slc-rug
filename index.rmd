@@ -132,7 +132,7 @@ background-size: contain
 # How it works
 ---
 # Let's give it a try
-.smaller[
+
 ```{r eval=FALSE}
 library(pins)
 #local board
@@ -142,15 +142,14 @@ library(pins)
 
 #write some pins
 board1 %>% pin_write(mtcars)
-board1 %>% pin_write(faithful)
 board1 %>% pin_write(palmerpenguins::penguins, 
                      name = "penguins", versioned = TRUE)
 
-#what do we have?
+#what pins do we have?
 board %>% pin_list()
 # [1] "faithful" "mtcars"   "penguins"
 
-#read the pin
+#read a pin
 board1 %>% pin_read("mtcars")
 
 #list versions
@@ -163,7 +162,7 @@ board1 %>% pin_versions("penguins")
 
 ```
 
-]
+
 
 ---
 #Now you try

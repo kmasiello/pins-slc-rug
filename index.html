@@ -127,7 +127,7 @@ background-size: contain
 # How it works
 ---
 # Let's give it a try
-.smaller[
+
 
 ```r
 library(pins)
@@ -138,15 +138,14 @@ library(pins)
 
 #write some pins
 board1 %&gt;% pin_write(mtcars)
-board1 %&gt;% pin_write(faithful)
 board1 %&gt;% pin_write(palmerpenguins::penguins, 
                      name = "penguins", versioned = TRUE)
 
-#what do we have?
+#what pins do we have?
 board %&gt;% pin_list()
 # [1] "faithful" "mtcars"   "penguins"
 
-#read the pin
+#read a pin
 board1 %&gt;% pin_read("mtcars")
 
 #list versions
@@ -158,7 +157,7 @@ board1 %&gt;% pin_versions("penguins")
 # 2 20211207T005855Z-84255 2021-12-06 16:58:00 84255
 ```
 
-]
+
 
 ---
 #Now you try
