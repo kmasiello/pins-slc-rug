@@ -170,12 +170,12 @@ board1 %>% pin_versions("penguins")
 library(pins)
 
 # My content is shared here
-board <- board_rsconnect(
-  server = "https://colorado.rstudio.com/rsc") 
+board <- board_url(c("penguins" = 
+                       "https://colorado.rstudio.com/rsc/example_pin/")) 
 
  
 # Read the data
-pin_read(board, "katie/penguins")
+pin_read(board, "penguins")
 
 
 ```

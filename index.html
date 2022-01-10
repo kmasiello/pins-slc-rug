@@ -166,12 +166,12 @@ board1 %&gt;% pin_versions("penguins")
 library(pins)
 
 # My content is shared here
-board &lt;- board_rsconnect(
-  server = "https://colorado.rstudio.com/rsc") 
+board &lt;- board_url(c("penguins" = 
+                       "https://colorado.rstudio.com/rsc/example_pin/")) 
 
  
 # Read the data
-pin_read(board, "katie/penguins")
+pin_read(board, "penguins")
 ```
 
 ### 🐧 : preview the pin at https://colorado.rstudio.com/rsc/example_pin/
